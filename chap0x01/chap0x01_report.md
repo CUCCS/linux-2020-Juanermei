@@ -19,21 +19,22 @@
 >
 
 >1.在virtualbox的主机管理器里增加一块网卡
-![img](img/../主机网络管理器增加一块网卡.jpg)
+![](img/主机网络管理器增加一块网卡.jpeg)
+
 
 >2.启动cloneUB18.04.4，启用第二块网卡
-![img](第二块网卡成功启用.jpg)
+![](img/第二块网卡成功启用.jpg)
 
 >3.得到第二块网卡的ip为：`192.168.56.101`
 
 >4.更新资源列表并安装openssh-server
-![img](安装ssh.jpeg)
+![](img/安装ssh.jpeg)
 
 >5.在终端登陆ssh，成功后退出到mac终端界面。用`scp "/Users/vivian./Library/Mobile Documents/com~apple~CloudDocs/Downloads/ubuntu-18.04.4-server-amd64.iso" juanermei@192.168.56.101:/home/juanermei`上传iso文件到服务器。
-![img](上传iso.png)
+![](img/上传iso.png)
 
 >6.挂载iso镜像文件到所上传的文件并创建工作目录，同步光盘内容到目标工作目录。
-![img](同步光盘.png)
+![](img/同步光盘.png)
 
 >7.卸载iso镜像并进入目标工作目录
 
@@ -44,7 +45,7 @@
   append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet`
   
 >9.将`ubuntu-server-autoinstall.seed`通过scp上传到“～/cd/preseed”
-![img](成功上传seed文件.png)
+![](img/成功上传seed文件.png)
 
 >10.修改isolinux/isolinux.cfg，将timeout 300改为timeout 10
 
@@ -56,12 +57,12 @@
 
 ## 遇到的问题及解决方案：
 > 1.在配置第二块网卡时无法指定网络界面从而无法启用第二块网卡
-> ![img](无法指定网络界面.png)
+> ![](img/无法指定网络界面.png)
 > 解决方案：在主机网络管理器中增加了一块网卡，从而成功启用第二块网卡。
 > 参考资料：https://www.jianshu.com/p/81969525835f
 
 > 2.在上传iso到服务器时找不到文件
-> ![img](上传iso找不到文件.png)
+> ![](img/上传iso找不到文件.png)
 > 解决方案：安装openssh-server后启动登陆ssh，输入命令`scp "/Users/vivian./Library/Mobile Documents/com~apple~CloudDocs/Downloads/ubuntu-18.04.4-server-amd64.iso" juanermei@192.168.56.101:/home/juanermei`成功上传。
 > 
 > 参考资料：
@@ -88,10 +89,11 @@ https://blog.csdn.net/netlai/article/details/79756260
 >`apt-get install genisoimage`
 >
 >这样在虚拟机（/home/juanermei/cd/）这个目录下就会出现custom.iso这个镜像
-![img](报错解决.png)
+![](img/报错解决.png)
 参考资料：
 https://blog.csdn.net/qq_31989521/article/details/58600426
 
 >5.在无人值守时卡住报错，由于改写文件添加了错误的seed文件名称，修改好后又忘了重新打包下载iso文件,后来重新下载文件时由于重新打包时变更了所在目录而输入错误的下载文件地址路径。
 >
 >解决方案：将错误的文件名称用vim修改后，重新打包下载iso文件，并查询custom.iso打包的路径，并重新启动虚拟机。
+![](img/重新打包下载.jpeg)
