@@ -21,9 +21,9 @@ sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt-get update
 ```
 >- 在Ubuntu服务器中安装asciinema  
-![img](安装asciinema并录制.jpeg)
+![](img/安装asciinema并录制.jpeg)
 >- 在asciinema成功关联本地账号和在线账号  
-![img](测试视频成功上传到asciinema.jpeg)
+![](img/测试视频成功上传到asciinema.jpeg)
 （*由于已经安装好了asciinema并且关联成功，所以用上传一个测试视频的方式展现成果,测试视频已删除*）
 ### 二.完成vimtutor操作
 >[vimtutor操作全程录像第一节-asciinema](https://asciinema.org/a/317176)  
