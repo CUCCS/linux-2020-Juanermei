@@ -1,0 +1,56 @@
+language: bash
+
+before_install:
+  - sudo apt-get update && sudo apt-get install -y shellcheck 
+  - /usr/bin/shellcheck --version  
+script:
+  #任务一:用bash编写一个图片批处理脚本
+    #帮助文档
+    - bash chap0x04.4-1.sh -h  
+
+    #对jpeg格式图片进行图片质量压缩
+    - bash chap0x04.4-1.sh -q 80 ~/workspace/shell/1.jpg
+
+    #对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率
+    - bash chap0x04.4-1.sh -r 50 ~/workspace/shell/1.jpg
+  
+    #批量添加自定义文本水印
+    - bash chap0x04.4-1.sh -w juanermei ./img~/workspace/shell/1.jpg
+
+    #前缀
+    - bash chap0x04.4-1.sh -p a_head ~/workspace/shell/1.jpg
+
+    #后缀
+    - bash chap0x04.4-1.sh -s a_tail ~/workspace/shell/1.jpg
+
+    #将png/svg图片统一转换为jpg格式图片
+    - bash chap0x04.4-1.sh -c ~/workspace/shell/2.png
+
+    #任务二：用bash编写一个文本批处理脚本
+      #worldcup
+      - bash chap0x04.4-2.sh -h
+      - bash chap0x04.4-2.sh -a
+      - bash chap0x04.4-2.sh -p
+      - bash chap0x04.4-2.sh -l
+      - bash chap0x04.4-2.sh -o
+
+      #web_log
+      - bash chap0x04.4-3.sh -h
+      - bash chap0x04.4-3.sh -a
+      - bash chap0x04.4-3.sh -b
+      - bash chap0x04.4-3.sh -c
+      - bash chap0x04.4-3.sh -d
+      - bash chap0x04.4-3.sh -e
+      - bash chap0x04.4-3.sh -u /images/USA-logosmall.gif  
+
+after_script:
+         - ~/workspace/shell/shellcheck_chap0x04.4-1.sh
+         - ~/workspace/shell/shellcheck_chap0x04.4-2.sh
+         - ~/workspace/shell/shellcheck_chap0x04.4-3.sh
+after_failure:
+         - id
+         - pwd
+         - cat error.log
+notifications:
+  email:
+    on_success: never
