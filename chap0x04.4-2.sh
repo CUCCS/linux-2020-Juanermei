@@ -20,14 +20,14 @@ echo '---------------------------------------------------------------------'
 dir=`pwd`
 
 #统计不同年龄区间范围的球员数量、百分比
-function age_num{
+function age_num{ 
 	#count1:20岁以下球员数；count2:20-30岁球员数；count3:30岁以上球员数
 	count1=0
 	count2=0
 	count3=0
 	i=0
 	for i in "${age[@]}";do
-		if [[ $i -lt 20]]
+		if [[ $i -lt 20 ]]
 		then
 			((count1++))
 		elif [[ $i -gt 30 ]]
