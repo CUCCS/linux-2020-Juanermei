@@ -15,13 +15,13 @@ script:
     - bash chap0x04.4-1.sh -r 50 ~/workspace/shell/1.jpg
   
     #批量添加自定义文本水印
-    - bash chap0x04.4-1.sh -w juanermei ./img~/workspace/shell/1.jpg
+    - bash chap0x04.4-1.sh -w juanermei ~/workspace/shell/1.jpg
 
     #前缀
     - bash chap0x04.4-1.sh -p a_head ~/workspace/shell/1.jpg
 
     #后缀
-    - bash chap0x04.4-1.sh -s a_tail ~/workspace/shell/1.jpg
+    - bash chap0x04.4-1.sh -s a_tail ~/workspace/shell/1_50%.jpg
 
     #将png/svg图片统一转换为jpg格式图片
     - bash chap0x04.4-1.sh -c ~/workspace/shell/2.png
