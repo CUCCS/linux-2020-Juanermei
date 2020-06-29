@@ -1,0 +1,57 @@
+---
+# tasks file for ansible-vsftpd
+
+- name: install vsftpd
+  apt:
+    name: vsftpd
+    state: latest
+
+- name: create directory for anonymous users
+  file: 
+    path: "{{ ANONY_DIR }}"
+    owner: "nobody"
+    group: "nogroup"
+    state: directory
+
+- name: add group for user
+  group:
+    name: "{{ user }}"
+    state: present
+
+- name: add user sammy
+  user:
+    name: "{{ user }}"
+    group: "{{ user }}"
+    password: "{{ user_pwd }}"
+
+- name: create ftp home directory for the local permitted user
+  file:
+    path: "{{ USER_DIR }}" # creates={{ USER_DIR }}
+    owner: "nobody"
+    group: "nogroup"
+    mode: a-w
+    state: directory
+
+- name: create writable directory for the local permitted user
+  file: 
+    path: "{{ USER_DIR_W }}" # creates={{ USER_DIR_W }}
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: directory
+
+- name: create file vsftpd.userlist 
+  copy: 
+    content: "{{ user }}"
+    dest: /etc/vsftpd.userlist
+    force: no
+    owner: root
+    mode: 0666
+
+- lineinfile: 
+    path: /etc/vsftpd.userlist
+    line: 'anonymous'
+
+- name: copy config file 
+  template: src=vsftpd.conf dest=/etc/vsftpd.conf backup=yes
+  notify:
+    - restart vsftpd

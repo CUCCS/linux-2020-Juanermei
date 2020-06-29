@@ -1,0 +1,2 @@
+{{ nfs_general_srv }} {{ nfs_clt }}(rw,sync)
+{{ nfs_home_srv  }} {{ nfs_clt }}(sync,no_root_squash,no_subtree_check)

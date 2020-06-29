@@ -1,0 +1,20 @@
+@@ -0,0 +1,19 @@
+---
+
+- name: install nfs for server
+  apt: 
+    name: nfs-kernel-server
+    state: latest
+    install_recommends: false
+
+- name: create shared directory
+  file:
+    path: "{{ nfs_general_srv }}"
+    owner: "nobody"
+    group: "nogroup"
+    state: directory
+
+- name: config 
+  template: src=exports dest=/etc/exports backup=yes
+  notify:
+    - nfs-kernel-server restart

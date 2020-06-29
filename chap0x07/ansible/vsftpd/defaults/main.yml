@@ -1,0 +1,8 @@
+---
+# vars file for ansible-vsftpd
+
+user: "sammy"
+user_pwd: "$6$Z0myAmer7$emSAodXK7SDDo6FxWSaOwwhD.w3Q.IPsPhkZfZW0s0CM630hOr9.EhXK2QJTYLzuPvtXn2z1PuzqIbU3v.fLV1"
+USER_DIR: "/home/{{ user }}/ftp"
+USER_DIR_W: "/home/{{ user }}/ftp/files"
+ANONY_DIR: "/var/ftp/pub"

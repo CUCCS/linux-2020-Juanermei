@@ -1,0 +1,6 @@
+SMB_USER: "demoUser"
+SMB_PASS: "password"
+SMB_PASS_HASH: "$6$TkGmIfSWAD$G9.AeB35KgKzQzd80qT6z0By2UpnqnLQioYL2q5zEjeXF6nXWsnAX0nYu8siV2t2NUms60U1S.1i5WqC.aAPV/"
+SMB_GROUP: "demoGroup"
+SHR_GUEST: "/srv/samba/guest"
+SHR_DEMO: "/srv/samba/demo"
