@@ -1,6 +1,0 @@
----
-# vars file for ansible-nfs
-
-nfs_general_srv: "/var/nfs/general"
-nfs_home_srv: "/home"
-nfs_clt: "192.168.57.3"
